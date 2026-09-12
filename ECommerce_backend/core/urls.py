@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from users.controller.DynamicFormController import DynamicFormController
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/',include('users.urls')),
+    path('api/getForm/<str:modelName>/',DynamicFormController.as_view(), name='dynamicForm'),
 ]
