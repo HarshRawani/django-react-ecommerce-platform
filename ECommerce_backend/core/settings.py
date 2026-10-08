@@ -162,3 +162,7 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
 ]
+
+REST_FRAMEWORK={
+    'EXCEPTION_HANDLER':'core.Helpers.custom_exception_handler'
+}
