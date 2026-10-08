@@ -18,8 +18,13 @@ from django.contrib import admin
 from django.urls import path,include
 from users.controller.DynamicFormController import DynamicFormController
 
+from users.controller.SuperAdminDynamicFormController import SuperAdminDynamicFormController
+from users.controller.SidebarController import ModuleView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/',include('users.urls')),
-    path('api/getForm/<str:modelName>/',DynamicFormController.as_view(), name='dynamicForm'),
+    
+    path('api/getForm/<str:modelName>/',DynamicFormController.as_view(),name='dynamicForm'),
+    path('api/superAdminForm/<str:modelName>/',SuperAdminDynamicFormController.as_view(),name='superadmindynamicForm'),
+    path('api/getMenus/',ModuleView.as_view(),name='sidebarmenu')
 ]
